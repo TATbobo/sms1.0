@@ -19,7 +19,7 @@ public class StudentServiceImpl implements IStudentService{
 		if(list!=null){
 			return list;
 		}else{
-			throw new Exception("要删除的对象不存在");
+			throw new Exception("数据库中没有对象");
 
 		}
 	}
@@ -30,7 +30,7 @@ public class StudentServiceImpl implements IStudentService{
 		if(student!=null){
 			return studentMapper.findById(id);
 		}else{
-			throw new Exception("要删除的对象不存在");
+			throw new Exception("要查找的对象不存在");
 
 		}
 	}
