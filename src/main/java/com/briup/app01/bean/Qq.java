@@ -3,7 +3,7 @@ package com.briup.app01.bean;
 public class Qq {
 	private Long id;
 	private Long question_id;
-	private Long questionnaire;
+	private Long questionnaire_id;
 	public Long getId() {
 		return id;
 	}
@@ -17,9 +17,9 @@ public class Qq {
 		this.question_id = question_id;
 	}
 	public Long getQuestionnaire() {
-		return questionnaire;
+		return questionnaire_id;
 	}
 	public void setQuestionnaire(Long questionnaire) {
-		this.questionnaire = questionnaire;
+		this.questionnaire_id = questionnaire;
 	}
 }

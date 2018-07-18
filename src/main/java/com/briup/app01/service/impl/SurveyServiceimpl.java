@@ -5,14 +5,20 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.briup.app01.VM.SurveyVM;
 import com.briup.app01.bean.Survey;
+import com.briup.app01.dao.SurveyMapper;
+import com.briup.app01.dao.extend.SurveyVMMapper;
 import com.briup.app01.service.ISurveyService;
 
 
 @Service
 public class SurveyServiceimpl implements ISurveyService{
 	@Autowired
-	private SurveyServiceimpl surveyServiceimpl;
+	private SurveyMapper surveyServiceimpl;
+	@Autowired
+	private SurveyVMMapper surveyVMServiceimpl;
+	
 	@Override
 	public List<Survey> findAll() throws Exception {
 	List<Survey> list =surveyServiceimpl.findAll();
@@ -58,6 +64,26 @@ public class SurveyServiceimpl implements ISurveyService{
 	@Override
 	public void update(Survey survey) throws Exception {
 			surveyServiceimpl.update(survey);
+	}
+
+	@Override
+	public List<SurveyVM> findAllSurveyVM() throws Exception {
+		List<SurveyVM> list =surveyVMServiceimpl.findAllSurveyVM();
+		if(list!=null){
+			return list;
+		}else{
+			throw new Exception("数据库中查询不到任何数据");
+			}
+	}
+
+	@Override
+	public SurveyVM findByIdVM(long id) throws Exception {
+		SurveyVM survey =surveyVMServiceimpl.findByIdVM(id);
+		if(survey!=null){
+			return survey;
+		}else{
+			throw new Exception("要查找的对象不存在");
+		}
 	}
 
 }

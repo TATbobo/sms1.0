@@ -2,8 +2,6 @@ package com.briup.app01.web.controller;
 
 import java.util.List;
 
-import javax.swing.plaf.synth.SynthDesktopIconUI;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,6 +12,9 @@ import com.briup.app01.bean.Student;
 import com.briup.app01.service.IStudentService;
 import com.briup.app01.util.MsgResponse;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+@Api(description="班级相关接口")
 @RestController
 @RequestMapping("/student")
 public class StudentController {
@@ -47,7 +48,7 @@ public class StudentController {
 		
 	}
 	
-	
+	@ApiOperation(value="查询所有班级",notes="只能查询出班级的基本信息，无法级联查询到班主任和年级")
 	//http://127.0.0.1:8080/student/findAllStudent
 	@GetMapping("findAllstudent")
 	public  MsgResponse findAllStudent(){

@@ -5,8 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.briup.app01.VM.ClazzVM;
 import com.briup.app01.bean.Clazz;
 import com.briup.app01.dao.ClazzMapper;
+import com.briup.app01.dao.extend.ClazzVMMapper;
 import com.briup.app01.service.IClazzService;
 
 
@@ -14,6 +16,9 @@ import com.briup.app01.service.IClazzService;
 public class ClazzServiceimpl implements IClazzService{
 	@Autowired
 	private ClazzMapper clazzMapper;
+	@Autowired
+	private ClazzVMMapper clazzVMMapper;
+	
 	@Override
 	public List<Clazz> findAll() throws Exception {
 	List<Clazz> list =clazzMapper.findAll();
@@ -23,7 +28,15 @@ public class ClazzServiceimpl implements IClazzService{
 		throw new Exception("数据库中查询不到任何数据");
 		}
 	}
-
+	@Override
+	public List<ClazzVM> findAllClazzVM() throws Exception {
+		List<ClazzVM> list =clazzVMMapper.findAllClazzVM();
+		if(list!=null){
+			return list;
+		}else{
+			throw new Exception("数据库中查询不到任何数据");
+			}
+	}
 	@Override
 	public Clazz findById(long id) throws Exception {
 		Clazz answer =clazzMapper.findById(id);
@@ -61,5 +74,16 @@ public class ClazzServiceimpl implements IClazzService{
 		clazzMapper.update(clazz);
 		
 	}
+	@Override
+	public ClazzVM findByIdVM(long id) throws Exception {
+		ClazzVM answer =clazzVMMapper.findByIdVM(id);
+		if(answer!=null){
+			return answer;
+		}else{
+			throw new Exception("要查找的对象不存在");
+		}
+	}
+
+
 
 }

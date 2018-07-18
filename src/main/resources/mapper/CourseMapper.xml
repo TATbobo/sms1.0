@@ -8,7 +8,7 @@
     select * from poll.poll_course
   </select>
   <select id="findById" parameterType="long" resultType="com.briup.app01.bean.Course">
-    select * from poll.poll_courset where id=#{id}
+    select * from poll.poll_course where id=#{id}
   </select>
    <delete id="deleteById" parameterType="long" >
   delete from poll.poll_course where id = #{id}

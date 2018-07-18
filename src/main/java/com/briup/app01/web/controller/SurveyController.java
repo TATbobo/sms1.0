@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.briup.app01.VM.SurveyVM;
 import com.briup.app01.bean.Survey;
 import com.briup.app01.service.ISurveyService;
 import com.briup.app01.util.MsgResponse;
@@ -19,7 +20,7 @@ public class SurveyController {
 	@Autowired
 	private ISurveyService schoolService;
 
-	@GetMapping("finAll")
+	@GetMapping("findAll")
 	public MsgResponse findAll(){
 		try{
 			List<Survey> list=schoolService.findAll();
@@ -29,8 +30,31 @@ public class SurveyController {
 			e.printStackTrace();
 			return MsgResponse.error(e.getMessage());
 		}
+	}
+	
+
+	@GetMapping("findAllSurveyVM")
+	public MsgResponse findAllSurveyVM(){
+		try{
+			List<SurveyVM> list=schoolService.findAllSurveyVM();
+			return MsgResponse.success("查找成功", list);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			return MsgResponse.error(e.getMessage());
+		}
 		
 	}
+	@GetMapping ("findByIdVM")
+	public MsgResponse findByIdVM(long id){
+		try {
+			SurveyVM school=schoolService.findByIdVM(id);
+			return MsgResponse.success("查找成功",school);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return MsgResponse.error(e.getMessage());
+		}
+	}	
 	@GetMapping ("findById")
 	public MsgResponse findById(long id){
 		try {
@@ -74,4 +98,5 @@ public class SurveyController {
 		}
 		
 	}
+	
 }

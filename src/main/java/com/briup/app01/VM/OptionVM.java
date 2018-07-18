@@ -1,11 +1,13 @@
-package com.briup.app01.bean;
+package com.briup.app01.VM;
 
-public class Option {
+import com.briup.app01.bean.Question;
+
+public class OptionVM {
 	private Long id;
 	private String label;
 	private String content;
-	private Integer score;
-	private Long question_id;
+	private int score;
+	private Question question;
 	public Long getId() {
 		return id;
 	}
@@ -30,10 +32,11 @@ public class Option {
 	public void setScore(int score) {
 		this.score = score;
 	}
-	public Long getQuestion_id() {
-		return question_id;
+	public Question getQuestion() {
+		return question;
 	}
-	public void setQuestion_id(Long question_id) {
-		this.question_id = question_id;
+	public void setQuestion(Question question) {
+		this.question = question;
 	}
+
 }

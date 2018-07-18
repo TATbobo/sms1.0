@@ -12,4 +12,5 @@ public interface QuestionMapper {
 	void deleteById(long id);
 	void insert(Question question);
 	void update(Question question);
+	void save(Question question);
 }

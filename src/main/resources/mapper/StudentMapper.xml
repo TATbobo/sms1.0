@@ -5,19 +5,19 @@
 <mapper namespace="com.briup.app01.dao.StudentMapper">
 <!-- 查询所有学生信息 -->
   <select id="findAll" resultType="com.briup.app01.bean.Student">
-    select * from text.Student 
+    select * from student 
   </select>
   <select id="findById" parameterType="long" resultType="com.briup.app01.bean.Student">
-    select * from text.Student where id=#{id}
+    select * from student where id=#{id}
   </select>
    <delete id="deleteById" parameterType="long" >
-  delete from text.Student where id = #{id}
+  delete from student where id = #{id}
 </delete>
  <insert id="insert"  parameterType="com.briup.app01.bean.Student">
- 	insert into text.Student values(null,#{name},#{age})
+ 	insert into student values(null,#{name},#{age})
  </insert>
  <update id="update" parameterType="com.briup.app01.bean.Student">
- 	update text.Student
+ 	update student
  	set name=#{name},age=#{age}
  	where id=#{id}
  </update>

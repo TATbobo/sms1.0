@@ -9,7 +9,9 @@ import com.briup.app01.bean.Option;
 public interface OptionMapper {
 	List<Option> findAll();
 	Option findById(long id);
+	Option findByQuestionId(long id);
 	void deleteById(long id);
 	void insert(Option option);
 	void update(Option option);
+	void save(Option option);
 }

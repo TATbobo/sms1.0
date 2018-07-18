@@ -2,11 +2,16 @@ package com.briup.app01.service.impl;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
 
+
+import com.briup.app01.VM.OptionVM;
 import com.briup.app01.bean.Option;
 import com.briup.app01.dao.OptionMapper;
+import com.briup.app01.dao.extend.OptionVMMapper;
 import com.briup.app01.service.IOptionService;
 
 
@@ -15,15 +20,29 @@ import com.briup.app01.service.IOptionService;
 public class OptionServiceimpl implements IOptionService{
 	@Autowired
 	private OptionMapper  optionMapper;
+	@Autowired
+	private OptionVMMapper optionVMMapper;
 	@Override
-	public List<Option> findAll() throws Exception {
-	List<Option> list =optionMapper.findAll();
-	if(list!=null){
-		return list;
-	}else{
-		throw new Exception("数据库中查询不到任何数据");
-		}
+	public List<OptionVM> findAllOptionVM() throws Exception {
+		List<OptionVM> list=optionVMMapper.findAllOptionVM();
+		if(list!=null){
+			return list;
+		}else{
+			throw new Exception("数据库中查询不到任何数据");
+			}
+	
 	}
+	@Override
+	public Option findByIdVM(long id) throws Exception {
+		OptionVM optionVM =optionVMMapper.findByIdVM(id);
+		if(optionVM!=null){
+			return optionMapper.findById(id);
+		}else{
+			throw new Exception("要查找的对象不存在");
+		}
+		
+	}
+
 
 	@Override
 	public Option findById(long id) throws Exception {
@@ -62,5 +81,18 @@ public class OptionServiceimpl implements IOptionService{
 		optionMapper.update(option);
 		
 	}
+
+	@Override
+	public List<Option> findAll() throws Exception {
+		List<Option> list=optionMapper.findAll();
+		if(list!=null){
+			return list;
+		}else{
+			throw new Exception("数据库中查询不到任何数据");
+			}
+	}
+
+
+
 
 }

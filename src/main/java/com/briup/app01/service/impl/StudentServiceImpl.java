@@ -11,7 +11,7 @@ import com.briup.app01.service.IStudentService;
 @Service
 public class StudentServiceImpl implements IStudentService{
 	@Autowired
-	private StudentMapper studentMapper;
+	private StudentMapper studentMapper;//注入StudentMapper,让spring产生一个StudnetMapper的对象，然后送过来
 		
 	@Override
 	public List<Student> findAll() throws Exception {
