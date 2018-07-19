@@ -15,8 +15,9 @@ import com.briup.app01.bean.Clazz;
 import com.briup.app01.service.IClazzService;
 import com.briup.app01.util.MsgResponse;
 
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-
+@Api(description="班级相关接口")
 @RestController
 @RequestMapping("/clazz")
 public class ClazzController {

@@ -15,7 +15,7 @@ import com.briup.app01.util.MsgResponse;
 
 import io.swagger.annotations.Api;
 
-@Api(description="问题相关接口")
+@Api(description="问题描述相关接口")
 @RestController
 @RequestMapping("/questionnaire")
 public class QuestionnaireController {

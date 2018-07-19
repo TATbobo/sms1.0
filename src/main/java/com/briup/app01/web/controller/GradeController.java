@@ -13,6 +13,8 @@ import com.briup.app01.bean.Grade;
 import com.briup.app01.service.IGradeService;
 import com.briup.app01.util.MsgResponse;
 
+import io.swagger.annotations.Api;
+@Api(description="年级相关接口")
 @RestController
 @RequestMapping("/grade")
 public class GradeController {

@@ -8,7 +8,7 @@
     select * from poll.poll_option
   </select>
   <insert id="save" parameterType="com.briup.app01.bean.Option">
-    insert into poll.poll_option values(null,#{label},#{content},#{score})
+    insert into poll.poll_option values(null,#{label},#{content},#{score},#{question_id})
   </insert>
   <select id="findById" parameterType="long" resultType="com.briup.app01.bean.Option">
     select * from poll.poll_option where id=#{id}

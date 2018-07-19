@@ -14,9 +14,10 @@ import com.briup.app01.bean.Question;
 import com.briup.app01.service.IQuestionService;
 import com.briup.app01.util.MsgResponse;
 
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import springfox.documentation.annotations.ApiIgnore;
 
+@Api(description="问题相关接口")
 @RestController
 @RequestMapping("/question")
 public class QuestionController {
@@ -24,7 +25,7 @@ public class QuestionController {
 	private IQuestionService questionService;
 
 	
-	@ApiOperation(value="保存问题",notes="保存问题的同时还保存选项,问题，选项，选项中的外键question_id都不需要输入")
+	@ApiOperation(value="保存问题",notes="保存问题的同时还保存选项。问题，选项，选项中的外键question_id都不需要输入")
 	@PostMapping("saveQuestion")
 	public MsgResponse saveQuestion(QuestionVM questionVM){
 		try {

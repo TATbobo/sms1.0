@@ -5,8 +5,14 @@ public class Question {
 	private String name;
 	private String questiontype;
 	
-	public Question(long questionId, String questionName, String questionType2) {
-		// TODO Auto-generated constructor stub
+	
+	public Question() {
+
+	}
+	public Question(Long id, String name, String questiontype) {
+		this.id = id;
+		this.name = name;
+		this.questiontype = questiontype;
 	}
 	public Long getId() {
 		return id;

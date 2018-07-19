@@ -101,9 +101,8 @@ public class QuestionServiceimpl implements IQuestionService{
 		questionMapper.save(question);
 		Long question_id=question.getId();
 		for(Option option :options){
-			
 			option.setQuestion_id(question_id);
-			optionMapper .save(option);
+			optionMapper.save(option);
 			
 		}
 		

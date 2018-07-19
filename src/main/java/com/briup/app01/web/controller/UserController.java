@@ -13,6 +13,8 @@ import com.briup.app01.bean.User;
 import com.briup.app01.service.IUserService;
 import com.briup.app01.util.MsgResponse;
 
+import io.swagger.annotations.Api;
+@Api(description="使用者相关接口")
 @RestController
 @RequestMapping("/user")
 public class UserController {

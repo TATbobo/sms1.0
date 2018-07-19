@@ -14,6 +14,8 @@ import com.briup.app01.bean.Option;
 import com.briup.app01.service.IOptionService;
 import com.briup.app01.util.MsgResponse;
 
+import io.swagger.annotations.Api;
+@Api(description="问题选项相关接口")
 @RestController
 @RequestMapping("/option")
 public class OptionController {
